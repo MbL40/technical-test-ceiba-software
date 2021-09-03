@@ -1,0 +1,33 @@
+<!--
+  Recuerde conservar los id, no deben ser modificados
+  ids = user-list__filter, user-list__table, user-list__table-item-[index], user-list__table-item-[index]-avatar, user-list__table-item-[index]-first_name, user-list__table-item-[index]-email, user-list__table-item-[index]-btn-delete
+  Remplazar [index] por el valor ejemplo "user-list__table-item-0"
+-->
+<div class="w-100 mx-auto my-30 pb-30">
+    <input type="text" id="user-list__filter" [(ngModel)]="filterByName" name="filterByName">
+</div>
+<div class="card w-50 mx-auto my-30 pb-30">
+    <table id="user-list__table">
+        <thead>
+            <tr>
+                <th>Nombres</th>
+                <th>Correo electrónico</th>
+                <th>Foto</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+
+        <tbody *ngIf="dataUser">
+            <tr *ngFor="let user of dataUser  | filterUserByName:filterByName; let i = index" id="user-list__table-item-{{i}}">
+                <td id="user-list__table-item-{{i}}-first_name">{{user.first_name}}</td>
+                <td id="user-list__table-item-{{i}}-email">{{user.email}}</td>
+                <td>
+                    <img id="user-list__table-item-{{i}}-avatar" src="{{user.avatar}}">
+                </td>
+                <td>
+                    <button id="user-list__table-item-{{i}}-btn-delete" class="danger" (click)="deleteUser(user.id, user)">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,9 @@
+<!--
+  Recuerde conservar los id, no deben ser modificados
+  ids = nav-bar__btn-list-user, nav-bar__btn-create-user, nav-bar__btn-logout
+-->
+<nav class="app-header layout-row justify-content-end">
+    <a id="nav-bar__btn-list-user" class="mx-20" [routerLink]="['/users/list']" routerLinkActive="active">Listar usuarios</a>
+    <a id="nav-bar__btn-create-user" class="mx-20" [routerLink]="['/users/create']" routerLinkActive="active">Crear usuario</a>
+    <a id="nav-bar__btn-logout" class="mx-20" (click)="logout()">Cerrar sesión</a>
+</nav>
